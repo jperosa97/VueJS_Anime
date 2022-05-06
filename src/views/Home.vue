@@ -1,6 +1,9 @@
 <template>
  <section>
 <div  class="featured">
+ <v-img  max-height="600"
+              cover src="../assets/demon_slayer.jpg" alt=""></v-img>
+ 
         <div class="featured--vertical">
           <div class="featured--horizontal">
             <div class="featured--content">
@@ -12,7 +15,11 @@
               </span>
               <div class="featured--content--action">
                 <router-link :to="'/AnimeDetail/40456'" class="featured--content--action--button">
-                  <i class="pi pi-ellipsis-v"></i>
+                 <v-icon
+                      large
+                      color="white darken-2">
+                    mdi-filmstrip
+                  </v-icon>
                   <span>Details</span>
                 </router-link>
               </div>
@@ -21,52 +28,44 @@
         </div>
       </div>
 
-<!--
- <div class="container">
-           <v-img  max-height="600"
-              cover src="../assets/demon_slayer.jpg" alt=""></v-img>
- 
- </div>-->
-
-    
-    
-    
-   
-    
     <NeueAnimeCarousel></NeueAnimeCarousel>
     <TopAnimeCarousel></TopAnimeCarousel>
- 
- 
- 
- 
- </section>
-     
-    
+    <FilmAnimeCarousel></FilmAnimeCarousel>
+ </section>   
 </template>   
 <script>
 import TopAnimeCarousel from '../components/TopAnimeCarousel.vue';
 import NeueAnimeCarousel from '../components/NeueAnimeCarousel.vue';
+import FilmAnimeCarousel from '../components/FilmAnimeCarousel.vue';
 
 export default {
    name: 'HomeItem',
    components:{
        TopAnimeCarousel,
        NeueAnimeCarousel,  
+       FilmAnimeCarousel,  
    },
 }
 
 </script>
 <style>
-
+/*.container {
+      display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21vh;
+}*/
 .featured {
   height: calc(70vh);
   background-size: cover;
   background-position: center;
-  background-image: url(https://pbs.twimg.com/media/EVP0f8iUwAIjf4w?format=jpg&name=4096x4096);
+  /*background-image: url(https://pbs.twimg.com/media/EVP0f8iUwAIjf4w?format=jpg&name=4096x4096);*/
 }
 .featured--vertical {
   width: inherit;
   height: inherit;
+  position: relative;
+    top: -37.5em;
   background: linear-gradient(to top, #111 10%, transparent 90%);
 }
 

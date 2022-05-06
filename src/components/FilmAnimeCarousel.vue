@@ -1,7 +1,7 @@
 <template>
   <div class="section">
   <div class="container">
-      <h1 class="titel">Neue Anime</h1>
+      <h1 class="titel">Film Anime</h1>
     <div class="flexed-line"></div>
   </div>
    
@@ -16,7 +16,7 @@
       >
       <v-img
         height="220"
-        src="../assets/animecover.jpg"
+        src="../assets/demon_slayer.jpg"
         cover
       ></v-img>
       <v-card-header>
