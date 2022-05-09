@@ -59,7 +59,7 @@ export default defineComponent({
   },
   data() {
     return {
-       animes: [],
+       animes: null,
     }
   },
   methods: {
