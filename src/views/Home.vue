@@ -59,7 +59,6 @@ export default {
   height: calc(70vh);
   background-size: cover;
   background-position: center;
-  /*background-image: url(https://pbs.twimg.com/media/EVP0f8iUwAIjf4w?format=jpg&name=4096x4096);*/
 }
 .featured--vertical {
   width: inherit;

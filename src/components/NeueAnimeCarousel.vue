@@ -6,24 +6,23 @@
   </div>
    
   <Carousel :itemsToShow="3.95" :wrapAround="true">
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item">
+    <Slide v-for="anime in animes" :key="anime.mal_id" >
+      <div class="carousel__item" >
       <v-hover v-slot="{ isHovering, props }">
       <v-card
         class="mx-auto my-12"
-        max-width="200"
-         v-bind="props"
-      >
+        min-width="145"
+         v-bind="props">
       <v-img
-        height="220"
-        src="../assets/animecover.jpg"
+        height="200"
+        :src="anime.images.jpg.image_url"
         cover
       ></v-img>
       <v-card-header>
         <v-card-header-text>
-          <v-card-title style="font-size: 18px;">Cafe Badilico</v-card-title>
+          <v-card-title style="font-size: 13px;">{{anime.title}}</v-card-title>
           <v-card-subtitle>
-            <span class="mr-1">Local Favorite</span>
+            <span class="mr-1">{{anime.genres.mal_id}}</span>
           </v-card-subtitle>
         </v-card-header-text>
       </v-card-header>
@@ -46,18 +45,36 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { defineComponent } from 'vue';
 import { Carousel,  Navigation, Slide } from 'vue3-carousel';
-
 import 'vue3-carousel/dist/carousel.css';
+
 export default defineComponent({
   name: 'CarouselTemplate',
   components: {
     Carousel,
     Slide,
-    
     Navigation,
   },
+  data() {
+    return {
+       animes: [],
+    }
+  },
+  methods: {
+     async getTopAnime(){
+      await axios.get(`https://api.jikan.moe/v4/top/anime`)
+      .then(res => {
+        console.log(res.data.data)
+        this.animes = res.data.data
+      })
+    },
+  },
+  created(){  
+    this.getTopAnime()     
+  },
+
 });
 </script>
 
