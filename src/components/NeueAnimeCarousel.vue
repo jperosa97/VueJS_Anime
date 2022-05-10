@@ -5,7 +5,7 @@
     <div class="flexed-line"></div>
   </div>
    
-  <Carousel :itemsToShow="3.95" :wrapAround="true">
+  <Carousel :value="animes" :itemsToShow="3.95" :wrapAround="true">
     <Slide v-for="anime in animes" :key="anime.mal_id" >
       <div class="carousel__item" >
       <v-hover v-slot="{ isHovering, props }">
@@ -22,7 +22,7 @@
         <v-card-header-text>
           <v-card-title style="font-size: 13px;">{{anime.title}}</v-card-title>
           <v-card-subtitle>
-            <span class="mr-1">{{anime.genres.mal_id}}</span>
+            <span class="mr-1">genres</span>
           </v-card-subtitle>
         </v-card-header-text>
       </v-card-header>
@@ -59,7 +59,7 @@ export default defineComponent({
   },
   data() {
     return {
-       animes: String,
+       animes: null,
     }
   },
   methods: {
@@ -71,7 +71,7 @@ export default defineComponent({
       })
     },
   },
-  created(){  
+  mounted(){  
     this.getTopAnime()     
   },
 
