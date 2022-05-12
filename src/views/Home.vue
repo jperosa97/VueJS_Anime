@@ -27,23 +27,22 @@
           </div>
         </div>
       </div>
-
-   <NeueAnimeCarousel></NeueAnimeCarousel>
-   <TopAnimeCarousel></TopAnimeCarousel>
-    <!--<FilmAnimeCarousel></FilmAnimeCarousel>-->
+    <TopAnimeCarousel></TopAnimeCarousel>
+    <NeueAnimeCarousel></NeueAnimeCarousel>
+    <PopulaerAnimeCarousel></PopulaerAnimeCarousel>
  </section>   
 </template>   
 <script>
 import NeueAnimeCarousel from '../components/NeueAnimeCarousel.vue';
 import TopAnimeCarousel from '../components/TopAnimeCarousel.vue';
-//import FilmAnimeCarousel from '../components/FilmAnimeCarousel.vue';
+import PopulaerAnimeCarousel from '../components/PopulaerAnimeCarousel.vue';
 
 export default {
    name: 'HomeItem',
    components:{  
      NeueAnimeCarousel,
      TopAnimeCarousel,
-     //FilmAnimeCarousel,  
+     PopulaerAnimeCarousel,  
    },
 }
 
