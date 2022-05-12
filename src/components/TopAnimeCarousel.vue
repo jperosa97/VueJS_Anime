@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="animes">
   <div class="container">
-      <h1 class="titel">Neue Anime</h1>
+      <h1 class="titel">Top Anime</h1>
     <div class="flexed-line"></div>
   </div>
   <Carousel :items-to-show="3.95" :wrap-around="true">
@@ -58,7 +58,6 @@ import axios from 'axios'
 import { defineComponent } from 'vue';
 import { Carousel,  Navigation, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
-
 export default defineComponent({
   name: 'TopAnimeCarousel',
   components: {
@@ -73,9 +72,9 @@ export default defineComponent({
   },
   methods: {
       getUpcomingAnime(){
-      axios.get(`https://api.jikan.moe/v4/top/anime?filter=upcoming`)
+      axios.get(`https://api.jikan.moe/v4/top/anime?filter=airing`)
       .then(res => {
-        console.log(res.data.data)
+        //console.log(res.data.data)
         this.animes = res.data.data
       })
     },

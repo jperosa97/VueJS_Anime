@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="animes">
   <div class="container">
-      <h1 class="titel">Top Anime</h1>
+      <h1 class="titel">Neue Anime</h1>
     <div class="flexed-line"></div>
   </div>
    
@@ -21,15 +21,10 @@
       ></v-img>
       <v-card-header>
         <v-card-header-text>
-          <v-card-title class="col-2 text-truncate" style="font-size: 13px;">{{anime.titel}}</v-card-title>
+          <v-card-title class="col-2 text-truncate" style="font-size: 13px;">{{anime.title}}</v-card-title>
           <v-card-subtitle>
              <span class="mr-1">
-              <v-icon
-                  large
-                  color="orange darken-2">
-                  mdi-star
-              </v-icon> 
-              {{anime.score}}   {{anime.type}}   
+               {{anime.type}}   
             </span>
           </v-card-subtitle>
         </v-card-header-text>
@@ -72,9 +67,9 @@ export default defineComponent({
   },
   methods: {
     getAiringAnime(){
-      axios.get(`https://api.jikan.moe/v4/top/anime?filter=airing`)
+      axios.get(`https://api.jikan.moe/v4/top/anime?filter=upcoming`)
       .then(res => {
-        console.log(res.data.data)
+        //console.log(res.data.data)
         this.animes = res.data.data
       })
     },

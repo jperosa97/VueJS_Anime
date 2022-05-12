@@ -74,7 +74,7 @@ export default defineComponent({
     getBypopularityAnime(){
       axios.get(`https://api.jikan.moe/v4/top/anime?filter=bypopularity`)
       .then(res => {
-        console.log(res.data.data)
+        //console.log(res.data.data)
         this.animes = res.data.data
       })
     },
