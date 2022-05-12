@@ -1,17 +1,15 @@
 <template>
-  <div class="section">
+  <div class="section" v-if="animes">
   <div class="container">
       <h1 class="titel">Neue Anime</h1>
     <div class="flexed-line"></div>
   </div>
-   
-  <Carousel :value="animes" :itemsToShow="3.95" :wrapAround="true">
-    <Slide v-for="anime in animes" :key="anime.mal_id" >
-      <div class="carousel__item" >
+  <Carousel :value="animes" :items-to-show="3.95" :wrap-around="true">
+    <Slide  v-for="anime in animes" :key="anime.mal_id" >
       <v-hover v-slot="{ isHovering, props }">
       <v-card
         class="mx-auto my-12"
-        min-width="145"
+        width="150"
          v-bind="props">
       <v-img
         height="200"
@@ -34,18 +32,20 @@
       >
         <v-btn flat style="background-color: #27ae60; color:#ecf0f1">more Info</v-btn>
       </v-overlay>
-    </v-card></v-hover>
-   </div>
+    </v-card>
+    </v-hover>
     </Slide>
-    <template #addons>
-      <Navigation />
-    </template>
+     <template #addons>
+          <Navigation
+            class="text-white bg-gray-700 opacity-50"
+          />
+        </template>
   </Carousel>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios' 
 import { defineComponent } from 'vue';
 import { Carousel,  Navigation, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
@@ -59,12 +59,12 @@ export default defineComponent({
   },
   data() {
     return {
-       animes: null,
+       animes: "",
     }
   },
   methods: {
-     async getTopAnime(){
-      await axios.get(`https://api.jikan.moe/v4/top/anime`)
+      getTopAnime(){
+      axios.get(`https://api.jikan.moe/v4/top/anime?q=tv&filter=airing`)
       .then(res => {
         console.log(res.data.data)
         this.animes = res.data.data
@@ -96,7 +96,7 @@ export default defineComponent({
   color: #ecf0f1;
 }
 .container .flexed-line {
-      flex: 1;
+    flex: 1;
     border-bottom: 1px solid #9e9e9e;
     margin-left: 12px;
     border-radius: 8px;
@@ -109,22 +109,5 @@ export default defineComponent({
   box-sizing: content-box;
   border: 5px solid #2F3542;
 }
-.carousel__slide > .carousel__item {
-  transform: scale(1);
-  opacity: 0.5;
-  transition: 0.5s;
-}
-.carousel__slide--visible > .carousel__item {
-  opacity: 1;
-  transform: rotateY(0);
-}
-.carousel__slide--next > .carousel__item {
-  transform: scale(0.9) translate(-10px);
-}
-.carousel__slide--prev > .carousel__item {
-  transform: scale(0.9) translate(10px);
-}
-.carousel__slide--active > .carousel__item {
-  transform: scale(1.1);
-}
+
 </style>
