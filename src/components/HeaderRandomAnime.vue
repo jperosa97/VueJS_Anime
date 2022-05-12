@@ -47,8 +47,8 @@ export default {
     getRandomAnime(){
         axios.get(`https://api.jikan.moe/v4/random/anime`)
         .then(res => {
-          console.log(res.data.data)
-            this.anime = res.data.data
+          //console.log(res.data.data)
+          this.anime = res.data.data
         })
     }
    },  

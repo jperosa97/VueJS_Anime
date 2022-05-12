@@ -1,14 +1,12 @@
 <template>
-
-   <!--<div class="navLogo">
-  <div id="nav">
-    <router-link to="/searchAnime">Suchen  <i class="pi pi-search"></i></router-link> 
-    <router-link to="/">Home <i class="pi pi-home"></i></router-link> 
-    <router-link to="/animeZufall">Zufall <i class="pi pi-reply"></i></router-link>
+  <div class="navLogo">
+    <div id="nav">
+      <router-link to="/animeSuche"><v-icon class="icon" large color="darken-2">mdi-magnify</v-icon> Suchen</router-link> 
+      <router-link to="/"><v-icon class="icon" large color="darken-2">mdi-home</v-icon> Home</router-link> 
+      <router-link to="/animeZufall"><v-icon class="icon" large color="darken-2">mdi-help-circle</v-icon> Zufall</router-link>
+    </div>
   </div>
-</div>-->
   <router-view/>
-
 </template>
 <script>
   export default {
@@ -25,28 +23,6 @@ body {
   background-color: #2F3542;
   text-align: center;
 }
-
-#nav {
-    width: 30vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 20px;
-  a {
-    font-weight: bold;
-    color: #F1EFEC;
-    text-decoration: none;
-   display: flex;
-      flex-direction: column-reverse;
-    &.router-link-exact-active {
-      color: #2F3542;
-     
-    }
-  }
-  i {
-    font-size: 20px; 
-  }
-}
 .navLogo {
   display: flex;
   background-color: #892B2D;
@@ -58,16 +34,25 @@ body {
   bottom: 0;
   border-radius: 5px;
 }
-
-
-.logo {
+#nav {
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+  a {
+    font-weight: bold;
+    color: #F1EFEC;
+    text-decoration: none;
     display: flex;
     align-items: center;
-    width: 15vw;
-    height: 8vh;
-    justify-content: center;
+    flex-direction: column-reverse;
+    &.router-link-exact-active {
+      color: #2F3542;
+     
+    }
+  }
+
 }
-.logo .logoAnime {
-  width: 8rem;
-}
+
 </style>
