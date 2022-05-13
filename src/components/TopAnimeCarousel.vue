@@ -44,7 +44,9 @@
         scrim="#2F3542"
         class="align-center justify-center"
       >
-        <v-btn flat style="background-color: #27ae60; color:#ecf0f1">more Info</v-btn>
+       <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id}}" style="text-decoration: none;">
+        <v-btn flat style="background-color: #27ae60; color:#ecf0f1; ">more Info </v-btn>
+      </router-link>
       </v-overlay>
     </v-card>
     </v-hover>

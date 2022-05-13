@@ -5,7 +5,7 @@
       max-height="600"
       cover 
       class="headerImg"
-      :src="anime.images.jpg.image_url" alt="">
+      :src="anime.images.jpg.large_image_url" alt="">
     </v-img>
     <div class="featured--vertical">
       <div class="featured--horizontal">
@@ -16,7 +16,7 @@
           <span class="featured--content--synopsis">
            {{ anime.synopsis}}</span>
           <div class="featured--content--action">
-            <router-link :to="'/AnimeDetail/40456'" class="featured--content--action--button">
+            <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id}}" class="featured--content--action--button">
               <v-icon
                   large
                   color="white darken-2">
