@@ -3,7 +3,7 @@
 	<router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id}}">
 		<a class="cardAnime" target="_blank">
 			<img 
-				:src="anime.image_url" 
+				:src="anime.images.jpg.image_url" 
 				:alt="anime.title + ' Poster'"
 			/>
 			<h3>{{ anime.title }}</h3>

@@ -24,29 +24,37 @@
    </div>
 </template>   
 <script>
-import { ref } from 'vue';
 import AnimeCard from '../components/AnimeCard.vue';
 export default {
    name: 'AnimeSuche',
    components:{  
       AnimeCard
    },
-   setup(){
-      const search_query = ref("");
-      const animelist = ref([]);
-      const HandleSearch = async () => {
-         animelist.value = await fetch(`https://api.jikan.moe/v4/anime?q=${search_query.value}`)
-         .then(res => res.json())
-         .then(data => data.results);
-         search_query.value = "";
-      }
+   data(){
       return{
-         AnimeCard, 
-         search_query,
-         animelist,
-         HandleSearch
+         animelist: [],
+         search_query: '',
+         
       }
+   },
+   methods: {
+      HandleSearch(){
+         this.GetAnimeList()
+      },
+      GetAnimeList(){
+         fetch(`https://api.jikan.moe/v4/anime?q=${this.search_query}`)
+         .then(async res => {
+            this.animelist = (await res.json()).data
+         })
+         .catch(err => {
+            console.log(err)
+         })
+      }
+   },
+   mounted(){
+      this.GetAnimeList()
    }
+   
 }
 
 </script>
