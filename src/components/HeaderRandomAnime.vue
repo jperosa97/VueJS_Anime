@@ -4,7 +4,7 @@
    <v-img  
       max-height="600"
       cover 
-      :src="anime.images.jpg.large_image_url" alt="">
+      :src="anime.images.jpg.image_url" alt="">
     </v-img>
     <div class="featured--vertical">
       <div class="featured--horizontal">
@@ -74,7 +74,12 @@ export default {
   top: -37.49em;
   background: linear-gradient(to top, #111 10%, transparent 90%);
 }
-
+.v-img__img--cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 28vw;
+    left: 48em;
+}
 .featured--horizontal {
   width: inherit;
   height: inherit;

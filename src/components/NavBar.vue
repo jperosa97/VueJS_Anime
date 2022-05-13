@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/animeSuche"><v-icon class="icon" large color="darken-2">mdi-magnify</v-icon> Suchen</router-link> 
       <router-link to="/"><v-icon class="icon" large color="darken-2">mdi-home</v-icon> Home</router-link> 
-      <router-link to="/animeZufall"><v-icon class="icon" large color="darken-2">mdi-help-circle</v-icon> Zufall</router-link>
+      <!--<router-link to="/animeZufall"><v-icon class="icon" large color="darken-2">mdi-help-circle</v-icon> Zufall</router-link>-->
     </div>
   </div>
   <router-view/>

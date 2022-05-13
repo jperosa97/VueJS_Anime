@@ -32,6 +32,12 @@
               {{anime.score}}   {{anime.type}}   
             </span>
           </v-card-subtitle>
+          <v-card-subtitle class="col-3 text-truncate">
+             <span class="mr-1" v-for="genre in anime.genres"
+                  :key="genre.mal_id">
+                 {{genre.name}}
+            </span>             
+          </v-card-subtitle>
         </v-card-header-text>
       </v-card-header>
       <v-overlay

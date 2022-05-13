@@ -23,9 +23,17 @@
         <v-card-header-text>
           <v-card-title class="col-2 text-truncate" style="font-size: 13px;">{{anime.title}}</v-card-title>
           <v-card-subtitle>
-             <span class="mr-1">
+             <span class="mr-1" >
                {{anime.type}}   
-            </span>
+                
+            </span>            
+          </v-card-subtitle>
+           <v-card-subtitle class="col-3 text-truncate">
+             <span class="mr-1" v-for="genre in anime.genres"
+                  :key="genre.mal_id">
+               
+                 {{genre.name}}
+            </span>             
           </v-card-subtitle>
         </v-card-header-text>
       </v-card-header>
@@ -69,7 +77,7 @@ export default defineComponent({
     getAiringAnime(){
       axios.get(`https://api.jikan.moe/v4/top/anime?filter=upcoming`)
       .then(res => {
-        //console.log(res.data.data)
+        console.log(res.data.data)
         this.animes = res.data.data
       })
     },
