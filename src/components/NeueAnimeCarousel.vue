@@ -6,7 +6,7 @@
   </div>
    
   <Carousel :itemsToShow="3.95" :wrapAround="true">
-    <Slide v-for="anime in animes" :key="anime.mal">
+    <Slide v-for="anime in animes" :key="anime.mal_id">
       <div class="carousel__item">
       <v-hover v-slot="{ isHovering, props }">
       <v-card
@@ -25,13 +25,11 @@
           <v-card-subtitle>
              <span class="mr-1" >
                {{anime.type}}   
-                
             </span>            
           </v-card-subtitle>
            <v-card-subtitle class="col-3 text-truncate">
              <span class="mr-1" v-for="genre in anime.genres"
-                  :key="genre.mal_id">
-               
+                  :key="genre.mal_id"> 
                  {{genre.name}}
             </span>             
           </v-card-subtitle>
