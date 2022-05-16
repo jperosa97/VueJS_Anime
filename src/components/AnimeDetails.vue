@@ -5,7 +5,11 @@
           <h3>{{anime.data.title}}  ~  
           {{anime.data.title_japanese}}
           </h3>
-        <span>{{anime.data.score}} <i id="icon" class="pi pi-star"></i></span>
+        <span>{{anime.data.score}}<v-icon
+                  large
+                  color="orange darken-2">
+                  mdi-star
+              </v-icon> </span>
         </div>
         <div class="animeInfo">
         <p>{{anime.data.synopsis}}</p>
@@ -17,26 +21,29 @@
          height="100"
         :src="anime.data.images.jpg.image_url"
         ></v-img>
-      
       </div>
-       
-         <div class="container">
+         <div class="InfoContainer">
             <ul class="animeMehrInfo">
               <li>{{anime.data.aired.string}}</li>
               <li>Episode: {{anime.data.episodes}}</li>
               <li>Source: {{anime.data.source}}</li>
               <li>Type: {{anime.data.type}}</li>
-              <li v-for="genre in anime.data.genres"
+              <li>Season: {{anime.data.season}}</li>
+              <div class="genresConainer">
+
+              <span v-for="genre in anime.data.genres"
                   :key="genre.mal_id">
                 <v-chip
                 class="ma-2"
-                color="cyan"
-                text-color="white"
-              
+                color="#F5C050"
+                label
+                
               >
                 {{genre.name}} 
-              </v-chip></li>
-            </ul>
+              </v-chip></span>
+              </div>
+           </ul>
+
           </div>
       </div>
          
@@ -54,7 +61,7 @@ export default {
       fetch(`https://api.jikan.moe/v4/anime/${route.params.id}`)
       .then((res) => res.json() )
         .then((data) => {
-          anime.value =data;
+          anime.value = data;
           console.log(data);
         })
       })
@@ -67,7 +74,7 @@ export default {
 </script>
 <style>
 .animeDetail {
-  color: #F1EFEC;
+  color: #ecf0f1;
   height: 85vh;
 }
 
@@ -88,26 +95,23 @@ export default {
   justify-content: space-between;
   align-items: baseline;
 }
-.animeTitle #icon {
-  font-size: 20px;
-  color: #a52c1f;
-}
+
 .animeInfo {
   width: 50vw;
   text-align: left;
 }
-.p-fieldset .animeMehrInfo {
-  line-height: 1.5;
-  margin: 0;
-  position: relative;
-  left: 3em;
-  width: 30vw;
-}
-.container {
-  height: 20vh;
-  display: flex;
-  position: relative;
-  align-items: center;
+
+.InfoContainer {
+    display: flex;
+    justify-content: center;
+    width: 18vw;
+    position: relative;
+    top: -8em;
+    background-color: #3D4562;
+    height: auto;
+    border: #3D4562 1px solid;
+    left: 10em;
+    border-radius: 5px;
 }
 .animeImg {
   display: flex;
@@ -115,19 +119,21 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 94vh;
 }
 
 #animeMehrInfo{
   display: flex;
   justify-content: center;
+
 }
 .animeMehrInfo{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: #F1EFEC;
-  list-style: none;
-  width: 205px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #ecf0f1;
+    list-style: none;
+    height: auto;
+    justify-content: center;
 }
 </style>

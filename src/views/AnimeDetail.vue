@@ -1,16 +1,29 @@
 <template>
+<header class="animeDetails">
   <AnimeDetails></AnimeDetails>
-  <!--<AnimeCharTab></AnimeCharTab>-->
+</header>
+<section class="animeCharTab">
+  <AnimeCharTab></AnimeCharTab>
+</section>
+  
    
 </template>
 <script>
 import AnimeDetails from '../components/AnimeDetails.vue'
-//import AnimeCharTab from '../components/AnimeCharTab.vue'
+import AnimeCharTab from '../components/AnimeCharTab.vue'
 export default {
   name: 'AnimeDetailItem',
   components: {
     AnimeDetails,
-    //AnimeCharTab
+    AnimeCharTab
   }
 }
 </script>
+<style>
+.animeDetails {
+  height: 150vh;
+}
+.animeCharTab {
+  height: 200vh;
+}
+</style>
