@@ -1,12 +1,5 @@
 <template>
-<div> 
-       <div class="animeDetail">
-      <v-img 
-        width="100"
-        class="backgroundImg"
-            :src="anime.data.images.jpg.large_image_url"
-        cover
-      ></v-img>
+       <div class="animeDetail" v-if="anime.data">
      <div class="animeTitle">
      <div class="score">
           <h3>{{anime.data.title}}  ~  
@@ -19,11 +12,14 @@
         </div>
       </div>
       <div class="animeImg">
-        <v-img
-        height="150"
-         :src="anime.data.images.jpg.image_url"
-        cover
-      ></v-img>
+      <v-img
+        width="300"
+         height="100"
+        :src="anime.data.images.jpg.image_url"
+        ></v-img>
+      
+      </div>
+       
          <div class="container">
             <ul class="animeMehrInfo">
               <li>{{anime.data.aired.string}}</li>
@@ -32,12 +28,19 @@
               <li>Type: {{anime.data.type}}</li>
               <li v-for="genre in anime.data.genres"
                   :key="genre.mal_id">
-                 {{genre.name}}</li>
+                <v-chip
+                class="ma-2"
+                color="cyan"
+                text-color="white"
+              
+              >
+                {{genre.name}} 
+              </v-chip></li>
             </ul>
           </div>
       </div>
-         </div>
-   </div>
+         
+
 </template>   
 <script>
 import { ref, onBeforeMount } from 'vue';
@@ -63,5 +66,68 @@ export default {
 
 </script>
 <style>
+.animeDetail {
+  color: #F1EFEC;
+  height: 85vh;
+}
 
+.animeTitle {
+  position: absolute;
+  left: 35vw;
+  top: 7em;
+}
+.animeTitle h3 {
+  display: flex;
+  height: 6vh;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3em;
+}
+.animeTitle .score {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.animeTitle #icon {
+  font-size: 20px;
+  color: #a52c1f;
+}
+.animeInfo {
+  width: 50vw;
+  text-align: left;
+}
+.p-fieldset .animeMehrInfo {
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+  left: 3em;
+  width: 30vw;
+}
+.container {
+  height: 20vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.animeImg {
+  display: flex;
+  width: 40vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#animeMehrInfo{
+  display: flex;
+  justify-content: center;
+}
+.animeMehrInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #F1EFEC;
+  list-style: none;
+  width: 205px;
+}
 </style>
