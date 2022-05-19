@@ -16,7 +16,7 @@ const routes = [
    component: AnimeSuche
   },
   {
-    path: '/animeDetail/:id',
+    path: '/animeDetail/:id/:title/',
     name: 'AnimeDetail',
     component: AnimeDetail,
   },

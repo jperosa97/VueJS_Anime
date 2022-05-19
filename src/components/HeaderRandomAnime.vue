@@ -16,7 +16,7 @@
           <span class="featured--content--synopsis">
            {{ anime.synopsis}}</span>
           <div class="featured--content--action">
-            <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id}}" class="featured--content--action--button">
+            <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}" class="featured--content--action--button">
               <v-icon
                   large
                   color="white darken-2">

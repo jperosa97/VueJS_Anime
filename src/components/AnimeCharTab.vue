@@ -24,13 +24,15 @@
     <v-window   v-model="tab">
       <v-window-item 
         :value="'tab-1'" >
-        <v-card v-if="character.data">
-        <v-img
+        <v-card v-for="char in charactersArray"
+					:key="char.character.mal_id"
+					:char="char">
+        <!-- <v-img
         width="300"
-        height="100"
-        :src="character.data.images.jpg.image_url"
-        ></v-img>
-          <v-card-text><h1>{{character.data.name}}</h1></v-card-text>
+         height="100"
+        :src="anime.data.character.images.jpg.image_url"
+        ></v-img>-->
+          <v-card-text><h1>>{{ char.character.name }}</h1></v-card-text>
         </v-card>
       </v-window-item>
       <v-window-item
@@ -54,6 +56,7 @@
 import {ref, onBeforeMount} from 'vue'
 import { useRoute } from 'vue-router'
   export default {
+    name: 'AnimeCharTab',
             data(){
       return{
       tab: null,
