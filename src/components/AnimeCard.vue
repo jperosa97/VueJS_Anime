@@ -1,6 +1,6 @@
 <template>
 	<div class="card">
-	<router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id}}">
+	<router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}">
 		<a class="cardAnime" target="_blank">
 			<img 
 				:src="anime.images.jpg.image_url" 

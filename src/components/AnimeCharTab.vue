@@ -22,24 +22,34 @@
       </v-tab>
     </v-tabs>
     <v-window   v-model="tab">
-      <v-window-item 
-        :value="'tab-1'" >
-        <v-card v-for="char in charactersArray"
-					:key="char.character.mal_id"
-					:char="char">
-        <!-- <v-img
-        width="300"
-         height="100"
-        :src="anime.data.character.images.jpg.image_url"
-        ></v-img>-->
-          <v-card-text><h1>>{{ char.character.name }}</h1></v-card-text>
-        </v-card>
-      </v-window-item>
+    <v-window-item 
+        :value="'tab-1'" v-for="character in characters"
+        :key="character.mal_id">
+        <v-container fluid>
+        
+        <v-hover v-slot="{ isHovering, props }">
+              <v-card
+                width="200"
+                height="200" v-bind="props">
+                  <v-img
+                  :src="character.image_url"
+                  ></v-img> 
+                  <v-overlay  :model-value="isHovering"
+                  contained
+                  scrim="#2F3542"
+                  class="align-center justify-center">
+                    <v-card-text><h1>{{ character.name }}</h1></v-card-text> 
+                  </v-overlay>
+              </v-card>
+        </v-hover> </v-container>
+      </v-window-item>  
       <v-window-item
         :value="'tab-2'"
       >
         <v-card>
-          <v-card-text><h1>hello</h1></v-card-text>
+       
+          <v-card-text><h1>hello</h1></v-card-text> 
+       
         </v-card>
       </v-window-item>
       <v-window-item
@@ -53,31 +63,31 @@
   </v-card>
 </template>
 <script> 
-import {ref, onBeforeMount} from 'vue'
-import { useRoute } from 'vue-router'
-  export default {
+import axios from 'axios'
+export default {
     name: 'AnimeCharTab',
-            data(){
+    props: ['id'],
+    data(){
       return{
       tab: null,
+      characters: [],
       }
     },
-    setup () {
-      const character = ref ([])
-      const route = useRoute()
-      
-      onBeforeMount(() => {
-        fetch(`https://api.jikan.moe/v4/anime/${route.params.id}/characters`)
-        .then((res) => res.json())
-        .then((data) => {
-            character.value = data;
-            console.log(data)
+    created(){
+      this.getCharacters(this.$route.params.id);
+    },
+    methods: {
+      getCharacters(id){
+        axios.get(`https://api.jikan.moe/v3/anime/${id}/characters_staff`)
+        .then(res => {
+          this.characters = res.data.characters;
+          console.log(res.data.characters);
         })
-      })
-      return {
-        character,
-        //tab: null 
       }
     }
   }
 </script>
+
+<style>
+
+</style>
