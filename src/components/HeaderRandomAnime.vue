@@ -1,6 +1,5 @@
 <template>
-  <div class="section" v-if="anime" >
-   <div  class="featured">
+   <div  class="featured" v-if="anime" >
    <v-img  
       max-height="600"
       cover 
@@ -29,8 +28,6 @@
         </div>
       </div>
     </div>
-  
-  </div>
 </template>
 
 <script>
@@ -63,8 +60,6 @@ export default {
 .featured {
   height: calc(70vh);
   width: 100vw;
-  margin-left: -25em;
-  margin-top: -1em;
   background-size: cover;
   background-position: center;
 }

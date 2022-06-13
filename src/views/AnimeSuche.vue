@@ -1,6 +1,6 @@
 <template>
    <div class="searchAnime">
-      <header>
+      <header class="headerSearch">
          <h1>Anime Suchen</h1>
 
          <form class="search-box" @submit.prevent="HandleSearch">
@@ -66,7 +66,7 @@ export default {
   display: inline-block;
   text-decoration: none;
 }
-header {
+.headerSearch {
 	padding-top: 50px;
 	padding-bottom: 50px;
 	h1 {

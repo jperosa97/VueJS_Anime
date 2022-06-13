@@ -1,10 +1,12 @@
 <template>
- <section>
-    <HeaderRandomAnime></HeaderRandomAnime>
+<header>  
+   <HeaderRandomAnime></HeaderRandomAnime>
+</header>
+<section>
     <NeueAnimeCarousel></NeueAnimeCarousel>
     <TopAnimeCarousel></TopAnimeCarousel>
     <PopulaerAnimeCarousel></PopulaerAnimeCarousel>
- </section>   
+</section>   
 </template>   
 <script>
 import HeaderRandomAnime from '../components/HeaderRandomAnime.vue';
