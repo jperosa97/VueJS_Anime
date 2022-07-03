@@ -4,10 +4,8 @@
       max-height="600"
       cover 
       class="headerImg"
-      :src="anime.images.jpg.large_image_url" alt="">
+      :src="anime.images.webp.large_image_url" alt="">
     </v-img>
-    <div class="featured--vertical">
-      <div class="featured--horizontal">
         <div class="featured--content">
           <div class="featured--content--title">
             {{anime.title}}
@@ -16,17 +14,16 @@
            {{ anime.synopsis}}</span>
           <div class="featured--content--action">
             <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}" class="featured--content--action--button">
+              <span>Details</span>
               <v-icon
                   large
                   color="white darken-2">
                 mdi-filmstrip
-              </v-icon>
-              <span>Details</span>
+              </v-icon>   
             </router-link>
           </div>
         </div>
-        </div>
-      </div>
+       
     </div>
 </template>
 
@@ -57,12 +54,16 @@ export default {
 
 </script>
 <style>
-.featured {
-  height: calc(70vh);
-  width: 100vw;
-  background-size: cover;
-  background-position: center;
+header {
+  height: 85vh;
 }
+.featured {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
 .featured--vertical {
   width: inherit;
   height:100%;
@@ -71,26 +72,17 @@ export default {
   background: linear-gradient(to top, #111 10%, transparent 90%);
 }
 .headerImg {
-    -o-object-fit: cover;
-    object-fit: cover;
-    max-width: 28vw;
-    left: 48em;
-}
-.featured--horizontal {
-  width: inherit;
-  height: inherit;
-  background: linear-gradient(to right, #111 30%, transparent 70%);
+    max-width: 26%;
+
 }
 .featured--content {
   height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 3vw;
   max-width: 30vw;
 }
 .featured--content--title {
-  margin-top: -70px;
   font-size: 32px;
   color: #ececec;
   font-weight: bold;
@@ -118,6 +110,7 @@ export default {
 .featured--content--action--button {
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
   background: #fd9330;
   outline: none;
@@ -128,7 +121,8 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 8px;
-  width: 125px;
+  width: 160px;
+  height: 60px;
   cursor: pointer;
   transition: 300ms ease-in-out;
   text-decoration: none;
