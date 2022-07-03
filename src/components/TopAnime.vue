@@ -31,6 +31,7 @@
                     label>
                     {{genre.name}} 
                   </v-chip> 
+                  
                 </v-list-item-subtitle>
               </div>
           </v-list-item-content>

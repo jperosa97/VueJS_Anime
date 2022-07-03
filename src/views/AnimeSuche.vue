@@ -2,7 +2,6 @@
    <div class="searchAnime">
       <header class="headerSearch">
          <h1>Anime Suchen</h1>
-
          <form class="search-box" @submit.prevent="HandleSearch">
             <input type="search"
                class="search-field"
@@ -62,7 +61,7 @@ export default {
 
 .cardAnime {
   overflow: hidden;
-  height: 360px;
+  height: 560px;
   display: inline-block;
   text-decoration: none;
 }

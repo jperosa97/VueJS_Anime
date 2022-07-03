@@ -29,10 +29,8 @@
 
 <script>
 import axios from 'axios'
-
 export default {
    name: 'HeaderRandomAnime',
-   
    data(){
      return{
       anime: null,
@@ -54,7 +52,7 @@ export default {
 
 </script>
 <style>
-header {
+.headerRandomAnime {
   height: 85vh;
 }
 .featured {
@@ -62,14 +60,6 @@ header {
     width: 100%;
     flex-direction: row-reverse;
     justify-content: space-around;
-}
-
-.featured--vertical {
-  width: inherit;
-  height:100%;
-  position: relative;
-  top: -37.49em;
-  background: linear-gradient(to top, #111 10%, transparent 90%);
 }
 .headerImg {
     max-width: 26%;
