@@ -1,8 +1,8 @@
 <template>
   <div class="navLogo">
     <div id="nav">
-      <router-link to="/animeSuche"><v-icon class="icon" large color="darken-2">mdi-magnify</v-icon> Suchen</router-link> 
-      <router-link to="/"><v-icon class="icon" large color="darken-2">mdi-home</v-icon> Home</router-link> 
+      <router-link class="router-link-exact" to="/animeSuche"><v-icon class="icon" large color="darken-2">mdi-magnify</v-icon> Suchen</router-link> 
+      <router-link class="router-link-exact" to="/"><v-icon class="icon2" large color="darken-2">mdi-home</v-icon> Home</router-link> 
       <!--<router-link to="/animeZufall"><v-icon class="icon" large color="darken-2">mdi-help-circle</v-icon> Zufall</router-link>-->
     </div>
   </div>
@@ -12,20 +12,10 @@
   export default {
   }
 </script>
-<style lang="scss">
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Fira Sans', sans-serif;
-}
-body {
-  background-color: #2F3542;
-  text-align: center;
-}
+<style>
 .navLogo {
   display: flex;
-  background-color: #892B2D;
+  background-color: #333333 ;
   height: 60px;
   left: 35%;
   justify-content: center;
@@ -40,19 +30,20 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 20px;
-  a {
+}
+ a {
     font-weight: bold;
     color: #F1EFEC;
     text-decoration: none;
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
-    &.router-link-exact-active {
-      color: #2F3542;
-     
-    }
   }
-
-}
+  a.router-link-exact-active{
+     color: #8bc34a;
+  }
+  a.router-link-exact:hover{
+    color:#8bc34a;
+  }
 
 </style>

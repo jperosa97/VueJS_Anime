@@ -65,7 +65,7 @@ export default {
 }
 .featured--vertical {
   width: inherit;
-  height: inherit;
+  height:100%;
   position: relative;
   top: -37.49em;
   background: linear-gradient(to top, #111 10%, transparent 90%);
@@ -73,7 +73,7 @@ export default {
 .headerImg {
     -o-object-fit: cover;
     object-fit: cover;
-    width: 28vw;
+    max-width: 28vw;
     left: 48em;
 }
 .featured--horizontal {

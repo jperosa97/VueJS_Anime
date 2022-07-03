@@ -2,7 +2,7 @@
        <div class="animeDetail" v-if="anime.data">
      <div class="animeTitle">
      <div class="score">
-          <h3>{{anime.data.title}}  ~  
+          <h3>{{anime.data.title}}  ~ Jp: 
           {{anime.data.title_japanese}}
           </h3>
         <span>{{anime.data.score}}<v-icon
@@ -107,9 +107,7 @@ export default {
     width: 18vw;
     position: relative;
     top: -8em;
-    background-color: #3D4562;
     height: auto;
-    border: #3D4562 1px solid;
     left: 10em;
     border-radius: 5px;
 }

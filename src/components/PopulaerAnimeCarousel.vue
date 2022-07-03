@@ -3,9 +3,20 @@
   <div class="container">
       <h1 class="titel">Populär Anime</h1>
     <div class="flexed-line"></div>
+           <v-row
+    align="center"
+    justify="space-around"
+  >
+    <v-btn
+      depressed
+      color="error"
+    >
+      Show More
+    </v-btn>
+  </v-row>
   </div>
    
-  <Carousel :itemsToShow="3.95" :wrapAround="true">
+  <Carousel :itemsToShow="7" :wrapAround="true">
     <Slide v-for="anime in animes" :key="anime.mal_id">
       <div class="carousel__item">
       <v-hover v-slot="{ isHovering, props }">
@@ -97,11 +108,7 @@ export default defineComponent({
 .section{
     margin: 0 auto;
     padding: 0 1.5rem 4rem;
-    max-width: 48rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 80vh;
+    max-width: 80%;
 }
 .container {
   display: flex;
@@ -116,30 +123,11 @@ export default defineComponent({
     margin-left: 12px;
     border-radius: 8px;
 }
-.carousel__slide {
-  padding: 10px;
-}
+
 .carousel__prev,
 .carousel__next {
   box-sizing: content-box;
-  border: 5px solid #2F3542;
+  border: 5px solid #121212;
 }
-.carousel__slide > .carousel__item {
-  transform: scale(1);
-  opacity: 0.5;
-  transition: 0.5s;
-}
-.carousel__slide--visible > .carousel__item {
-  opacity: 1;
-  transform: rotateY(0);
-}
-.carousel__slide--next > .carousel__item {
-  transform: scale(0.9) translate(-10px);
-}
-.carousel__slide--prev > .carousel__item {
-  transform: scale(0.9) translate(10px);
-}
-.carousel__slide--active > .carousel__item {
-  transform: scale(1.1);
-}
+
 </style>

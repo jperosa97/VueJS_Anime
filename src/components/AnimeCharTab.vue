@@ -48,8 +48,8 @@
       <!--Trailer Start-->
          <v-window-item
         :value="'tab-2'">
-        <v-card>
-          <iframe v-if="anime.data.trailer.embed_url != null" :src="anime.data.trailer.embed_url" ></iframe>
+        <v-card class="trailer">
+          <iframe  height="250" width="500" v-if="anime.data.trailer.embed_url != null" :src="anime.data.trailer.embed_url" ></iframe>
           <div class="keinTrailer" v-else>keinen Trailer vorhanden.</div>
           </v-card>
       </v-window-item>
@@ -66,7 +66,7 @@
        <v-img :src="recommendation.image_url"></v-img>
        <v-overlay :model-value="isHovering"
        contained
-       scrim="#2F3542"
+       scrim="#2F3542" 
        class="align-center justify-center"> 
         <v-card-text style="color: #ecf0f1;"><h1>{{recommendation.title}}</h1></v-card-text> 
        </v-overlay>
@@ -153,5 +153,9 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(11rem, 0.3fr));
   grid-auto-rows: auto;
   grid-gap: 1.5rem;
+}
+.trailer {
+  display: flex;
+  justify-content: center;
 }
 </style>

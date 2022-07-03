@@ -18,5 +18,9 @@ export default {
     box-sizing: border-box;
     font-family: 'Fira Sans', sans-serif;
 }
+body {
+  background-color: #121212;
+  text-align: center;
+}
 
 </style>
