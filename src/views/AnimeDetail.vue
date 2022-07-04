@@ -23,7 +23,5 @@ export default {
 .animeDetails {
   height: 150vh;
 }
-.animeCharTab {
-  height: 200vh;
-}
+
 </style>

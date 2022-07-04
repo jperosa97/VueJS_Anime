@@ -1,16 +1,10 @@
 <template>
        <div class="animeDetail" v-if="anime.data">
      <div class="animeTitle">
-     <div class="score">
-          <h3>{{anime.data.title}}  ~ Jp: 
-          {{anime.data.title_japanese}}
-          </h3>
-        <span>{{anime.data.score}}<v-icon
-                  large
-                  color="orange darken-2">
-                  mdi-star
-              </v-icon> </span>
-        </div>
+          <h3>{{anime.data.title}}  ~  </h3> 
+          <span>
+            {{anime.data.title_japanese}}
+          </span>        
         <div class="animeInfo">
         <p>{{anime.data.synopsis}}</p>
         </div>
@@ -24,6 +18,12 @@
       </div>
          <div class="InfoContainer">
             <ul class="animeMehrInfo">
+              <li> <span>{{anime.data.score}} <v-icon
+                  large
+                  color="orange darken-2">
+                  mdi-star
+              </v-icon> </span>
+</li>
               <li>{{anime.data.aired.string}}</li>
               <li>Episode: {{anime.data.episodes}}</li>
               <li>Source: {{anime.data.source}}</li>
@@ -77,11 +77,13 @@ export default {
   color: #ecf0f1;
   height: 85vh;
 }
-
 .animeTitle {
-  position: absolute;
-  left: 35vw;
-  top: 7em;
+    position: absolute;
+    left: 35vw;
+    display: flex;
+    top: 7em;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .animeTitle h3 {
   display: flex;
