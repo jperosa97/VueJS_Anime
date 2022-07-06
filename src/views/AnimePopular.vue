@@ -1,8 +1,8 @@
 <template>
-<div class="conNewAnime">
-  <h1 class="newAnimeTitle">New Anime</h1>
+<div class="conPopAnime">
+  <h1 class="popAnimeTitle">Popular Anime</h1>
 </div>
-<div class="newAnime">
+<div class="popAnime">
 
   <div class="cards" v-if="animes">
      <AnimeCard v-for="anime in animes" :key="anime.mal_id" :anime="anime"/>
@@ -26,8 +26,8 @@ export default defineComponent({
     }
   },
   methods: {
-    getAiringAnime(){
-      axios.get(`https://api.jikan.moe/v4/top/anime?filter=upcoming&page=2`)
+    getBypopularityAnime(){
+      axios.get(`https://api.jikan.moe/v4/top/anime?filter=bypopularity&page=2`)
       .then(res => {
         console.log(res.data.data)
         this.animes = res.data.data
@@ -35,20 +35,20 @@ export default defineComponent({
     },
   },
   created(){
-    this.getAiringAnime()
+    this.getBypopularityAnime()
   }
 });
 </script>
 
 <style>
-.newAnimeTitle {
+.popAnimeTitle {
     display: flex;
     justify-content: center;
     height: 10vh;
     align-items: center;
     color: #ecf0f1;
 }
-.newAnime {
+.popAnime {
     position: relative;
     left: 7%;
 }

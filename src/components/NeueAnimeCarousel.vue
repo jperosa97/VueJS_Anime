@@ -5,14 +5,14 @@
     <div class="flexed-line"></div>  
       <v-row
         align="center"
-        justify="space-around"
-      > <router-link :to="{ name: 'AnimeNew', }">
-      <v-btn
-        depressed
-        color="error"
-      >
-        Show More
-      </v-btn>  </router-link>
+        justify="space-around"> 
+        <router-link :to="{ name: 'AnimeNew', }">
+          <v-btn
+            depressed
+            color="error">
+            Show More
+          </v-btn>  
+        </router-link>
     </v-row>
   </div>
   <Carousel :itemsToShow="7" :wrapAround="true">

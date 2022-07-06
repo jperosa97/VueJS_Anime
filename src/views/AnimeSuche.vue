@@ -67,7 +67,6 @@ export default {
 .cardAnime {
     overflow: hidden;
     width: 560px;
-    height: 300px;
     display: inline-block;
     text-decoration: none;
 }
@@ -117,6 +116,5 @@ main {
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 300px;
-  color: #a52c1f;
 }
 </style>

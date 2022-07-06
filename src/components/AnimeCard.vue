@@ -2,9 +2,7 @@
 <div class="card">
  <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}">
 		<a class="cardAnime" target="_blank">
-<v-card
-    class="cardImg"    
-  >
+<v-card class="cardImg">
     <v-img class="imgAnime"
       height="250"
      :src="anime.images.jpg.image_url" 
@@ -13,7 +11,7 @@
     ></v-img>
     <div class="contextAnime">
     <v-card-item>
-      <v-card-title>{{ anime.title }}</v-card-title>
+      <v-card-title class="text-truncate">{{ anime.title }}</v-card-title>
       <v-card-subtitle>
         <span class="mr-1">{{anime.type}}</span>
 		<span class="mr-1">{{anime.year}}</span>
@@ -49,15 +47,11 @@
                 label  
               >{{genre.name}}</v-chip>
 		</li>
-	</ul>
-    
-    
+	</ul>    
     </div>
      </v-card>
 	</a>
 	</router-link>
-	
-
  </div>
 </template>
 
@@ -70,7 +64,7 @@ export default {
 
 <style>
 .card {
-    width: 45%;
+    
     height: 310px;
     float: left;
     margin-left: 50px;
@@ -87,14 +81,8 @@ export default {
     transition: 0.4s;
     margin-left: 2px;
 }
-h3 {
-    font-size: 18px;
-    line-height: 18px;
-    white-space: nowrap;
-    width: 200px;
-    padding: 16px;
-    color: #F1F2F6;
-    transition: 0.4s;
+.contextAnime {
+  width: 18vw;
 }
 .genreContainer {  
     width: 357px;

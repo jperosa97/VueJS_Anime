@@ -7,12 +7,14 @@
     align="center"
     justify="space-around"
   >
+  <router-link :to="{ name: 'AnimePopular', }">
     <v-btn
       depressed
       color="error"
     >
       Show More
     </v-btn>
+    </router-link>
   </v-row>
   </div>
    
