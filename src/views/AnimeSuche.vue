@@ -2,18 +2,31 @@
    <div class="searchAnime">
       <header class="headerSearch">
          <h1>Anime Suchen</h1>
-         <form class="search-box" @submit.prevent="HandleSearch">
-            <input type="search"
-               class="search-field"
-               placeholder="Anime suchen"
-            v-model="search_query">
-         </form>
+           <v-form class="search-box" 
+               @submit.prevent="HandleSearch"  >
+    <v-text-field
+       v-model="search_query"
+     class="search-field"
+      label="Anime Suchen"
+      type="search"
+      required
+      variant="outlined"
+    ></v-text-field>
+  </v-form>
+
+        
       </header>
       <main>
          <div class="cards" v-if="animelist.length > 0">
             <AnimeCard v-for="anime in animelist"
                   :key="anime.mal_id"
                   :anime="anime" />
+                  <v-pagination
+      v-model="page"
+      :length="4"
+      prev-icon="mdi-menu-left"
+      next-icon="mdi-menu-right"
+    ></v-pagination>
          </div>
          <div class="no-results" v-else>
             <h3>Sorry, kein Resultat vorhanden...</h3>
@@ -60,10 +73,11 @@ export default {
 <style lang="scss">
 
 .cardAnime {
-  overflow: hidden;
-  height: 560px;
-  display: inline-block;
-  text-decoration: none;
+    overflow: hidden;
+    width: 560px;
+    height: 300px;
+    display: inline-block;
+    text-decoration: none;
 }
 .headerSearch {
 	padding-top: 50px;
@@ -75,12 +89,6 @@ export default {
 		text-align: center;
 		text-transform: uppercase;
 		margin-bottom: 30px;
-		strong {
-			color: #a52c1f;
-		}
-		&:hover {
-			color: #a52c1f;
-		}
 	}
 	.search-box {
 		display: flex;
@@ -92,14 +100,13 @@ export default {
 			background: none;
 			border: none;
 			outline: none;
-			background-color: #F3F3F3;
-			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+			
 			display: block;
 			width: 100%;
 			max-width: 600px;
 			padding: 15px;
 			border-radius: 8px;
-			color: #313131;
+			color: white;
 			font-size: 20px;
 			transition: 0.4s;
 			&::placeholder {

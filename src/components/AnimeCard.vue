@@ -1,27 +1,22 @@
-<template><div class="card">
+<template>
+<div class="card">
+ <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}">
+		<a class="cardAnime" target="_blank">
 <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
+   
+    class="mx-auto"
+    max-width="650"
+    
   >
   
-  <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}">
-		<a class="cardAnime" target="_blank">
-    <v-progress-linear
-      v-if="loading"
-      class="position-absolute"
-      style="z-index: 1"
-      color="deep-purple"
-      height="10"
-      indeterminate
-    ></v-progress-linear>
-
+ 
     <v-img class="imgAnime"
       height="250"
      :src="anime.images.jpg.image_url" 
 				:alt="anime.title + ' Poster'"
       cover
     ></v-img>
+    <div class="contextAnime">
     <v-card-item>
       <v-card-title>{{ anime.title }}</v-card-title>
       <v-card-subtitle>
@@ -60,10 +55,15 @@
               >{{genre.name}}</v-chip>
 		</li>
 	</ul>
+    
+    
+    </div>
+     </v-card>
 	</a>
 	</router-link>
 	
- </v-card></div>
+
+ </div>
 </template>
 
 <script>
@@ -75,13 +75,17 @@ export default {
 
 <style>
 .card {
-	width: 16%;
+    width: 45%;
+    height: 310px;
     float: left;
     margin-left: 50px;
 }
+.v-card {
+  display: flex;
+}
 .imgAnime {
-    width: 204px;
-    height: 300px;
+    max-width: 165px;
+    height: 250px;
     border-radius: 6px 6px 0 0;
     box-shadow: 0px 4px 8px rgb(0 0 0 / 15%);
     transition: 0.4s;
@@ -95,6 +99,9 @@ h3 {
     padding: 16px;
     color: #F1F2F6;
     transition: 0.4s;
+}
+.genreContainer {  
+    width: 357px;
 }
 .genreContainer li {
     list-style: none;
