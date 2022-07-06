@@ -22,8 +22,7 @@
     <v-card-text>
       <v-row
         align="center"
-        class="mx-0"
-      >
+        class="mx-0" v-if="anime.score != null">
         <v-rating
           :model-value="4.5"
           color="amber"
@@ -33,10 +32,11 @@
           size="14"
         ></v-rating>
 
-        <div class="text-grey ms-4">
+        <div class="text-grey ms-4" >
          {{anime.score}}
         </div>
       </v-row>
+      <div class="keinScore" v-else></div>
     </v-card-text>
     <ul class="genreContainer">
 		<li v-for="genre in anime.genres"
