@@ -1,21 +1,20 @@
 <template>
   <div class="section" v-if="animes">
   <div class="container">
-      <h1 class="titel">Neue Anime</h1> 
-      <div class="flexed-line"></div>
-       <v-row
-    align="center"
-    justify="space-around"
-  >
-    <v-btn
-      depressed
-      color="error"
-    >
-      Show More
-    </v-btn>
-  </v-row>
+    <h1 class="titel">Neue Anime</h1> 
+    <div class="flexed-line"></div>  
+      <v-row
+        align="center"
+        justify="space-around"
+      > <router-link :to="{ name: 'AnimeNew', }">
+      <v-btn
+        depressed
+        color="error"
+      >
+        Show More
+      </v-btn>  </router-link>
+    </v-row>
   </div>
-   
   <Carousel :itemsToShow="7" :wrapAround="true">
     <Slide v-for="anime in animes" :key="anime.mal_id">
       <div class="carousel__item">

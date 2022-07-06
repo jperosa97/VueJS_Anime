@@ -12,21 +12,13 @@
       required
       variant="outlined"
     ></v-text-field>
-  </v-form>
-
-        
+  </v-form>    
       </header>
       <main>
          <div class="cards" v-if="animelist.length > 0">
             <AnimeCard v-for="anime in animelist"
                   :key="anime.mal_id"
                   :anime="anime" />
-                  <v-pagination
-      v-model="page"
-      :length="4"
-      prev-icon="mdi-menu-left"
-      next-icon="mdi-menu-right"
-    ></v-pagination>
          </div>
          <div class="no-results" v-else>
             <h3>Sorry, kein Resultat vorhanden...</h3>

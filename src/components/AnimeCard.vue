@@ -3,13 +3,8 @@
  <router-link :to="{ name: 'AnimeDetail', params: { id: anime.mal_id, title: anime.title}}">
 		<a class="cardAnime" target="_blank">
 <v-card
-   
-    class="mx-auto"
-    max-width="650"
-    
+    class="cardImg"    
   >
-  
- 
     <v-img class="imgAnime"
       height="250"
      :src="anime.images.jpg.image_url" 
@@ -80,8 +75,9 @@ export default {
     float: left;
     margin-left: 50px;
 }
-.v-card {
+.cardImg{
   display: flex;
+  max-width:650px;
 }
 .imgAnime {
     max-width: 165px;

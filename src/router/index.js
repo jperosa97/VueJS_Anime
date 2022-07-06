@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import AnimeDetail from '../views/AnimeDetail.vue'
 import AnimeSuche from '../views/AnimeSuche.vue'
-//import AnimeZufall from '../views/AnimeZufall.vue'
+import AnimeNew from '../views/AnimeNew.vue'
 
 const routes = [
   {
@@ -20,11 +20,11 @@ const routes = [
     name: 'AnimeDetail',
     component: AnimeDetail,
   },
-   /* {
-    path: '/animeZufall',
-    name: 'AnimeZufall',
-    component: AnimeZufall,
-  },*/
+   {
+    path: '/animeNew',
+    name: 'AnimeNew',
+    component: AnimeNew,
+  },
   
 ]
 
