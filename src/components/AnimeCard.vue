@@ -63,8 +63,7 @@ export default {
 </script>
 
 <style>
-.card {
-    
+.card { 
     height: 310px;
     float: left;
     margin-left: 50px;
