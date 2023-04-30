@@ -20,6 +20,7 @@ const routes = [
     path: '/animeDetail/:id/:title/',
     name: 'AnimeDetail',
     component: AnimeDetail,
+    props:true,
   },
    {
     path: '/animeNew',
