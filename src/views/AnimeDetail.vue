@@ -20,8 +20,4 @@ export default {
 }
 </script>
 <style>
-.animeDetails {
-  height: 150vh;
-}
-
 </style>
